@@ -5,5 +5,3 @@ services:
 before_install:
     - docker build -t dabe/docker-react -f Dockerfile.dev . 
 
-script:
-    - docker run dabe/docker-react npm run test -- --coverage
