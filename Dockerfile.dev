@@ -1,0 +1,12 @@
+#Izaberes runtime ili sta vec pokreces, image od toga 
+#alpine znaci striped verzija toga, znaci samo to i nista drugo 
+FROM node:alpine 
+#radni folder unutar ovog image-a 
+WORKDIR '/app'
+#kopiraj mi package json i pokreni npm install samo ako se nesto novo doda 
+COPY package.json .
+RUN npm install 
+#kopiraj fajlove - React app - unutar doker kontejnera 
+COPY . .
+#kada kopiras fajlove, pokreni komandu ispod , u ovom slucaju npm start
+CMD [ "npm","run", "start" ] 
